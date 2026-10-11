@@ -28,8 +28,12 @@ $_LANG['invoicecancelerror'] = 'There was a problem cancelling your invoice. Ple
 ### 2. Install Hook File
 Copy `invoice_cancel.php` to the `includes/hooks/` directory in your WHMCS installation.
 
-### 3. Modify Template (Optional)
-If you're using a custom template, ensure the following is added to your `viewinvoice.tpl`:
+### 3. Render the Hook Output in Your Template
+The hook supplies `cancelButton` but does not render it. Ensure your active
+theme's `viewinvoice.tpl` includes the following output and result messages.
+You can skip this edit only if the template already renders them; merge the
+relevant sections from the bundled `viewinvoice.tpl` rather than replacing
+your entire theme template:
 
 ```smarty
 {if $cancelButton}
